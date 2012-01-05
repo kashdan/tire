@@ -40,6 +40,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "mocha"
   s.add_development_dependency "activerecord", "~> 3"
   s.add_development_dependency "mongoid",      "~> 2.2.1"
+  s.add_development_dependency "minitest"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "supermodel",   "~> 0.1.6"
   s.add_development_dependency "curb"
