@@ -51,9 +51,10 @@ module Tire
       end
 
       id       = get_id_from_document(document)
+      version  = document._version.to_i
       document = convert_document_to_json(document)
 
-      url  = id ? "#{Configuration.url}/#{@name}/#{type}/#{id}" : "#{Configuration.url}/#{@name}/#{type}/"
+      url  = id ? "#{Configuration.url}/#{@name}/#{type}/#{id}?version=#{version}" : "#{Configuration.url}/#{@name}/#{type}/"
       url += "?percolate=#{percolate}" if percolate
 
       @response = Configuration.client.post url, document

@@ -137,6 +137,9 @@ module Tire
               instance._type    = response['_type']    if instance.respond_to?(:_type=)
               instance._version = response['_version'] if instance.respond_to?(:_version=)
               instance.matches  = response['matches']  if instance.respond_to?(:matches=)
+              if response['status'] == 409 && response['error'].to_s.include?('VersionConflictEngineException')
+                instance.errors.add('_version')
+              end
               self
             end
           end
