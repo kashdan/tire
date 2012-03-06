@@ -329,7 +329,7 @@ module Tire
             Configuration.client.expects(:post).
                                  with do |url, payload|
                                    doc = MultiJson.decode(payload)
-                                   url == "#{Configuration.url}/persistent_articles/persistent_article/r2d2" &&
+                                   url == "#{Configuration.url}/persistent_articles/persistent_article/r2d2?version=0&" &&
                                    doc['title'] == 'Test' &&
                                    doc['published_on'] == nil
                                  end.
